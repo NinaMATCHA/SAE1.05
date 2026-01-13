@@ -207,6 +207,80 @@
       </PK>
    </Table>
    <Table>
+      <Name>Eleveur</Name>
+      <Column>
+         <Name>idEleveur</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>nomEleveur</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <PK>
+         <Key>idEleveur</Key>
+      </PK>
+   </Table>
+   <Table>
+      <Name>Vache</Name>
+      <Column>
+         <Name>idVache</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>age</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>pays</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>idEleveur</Name>
+         <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
+      </Column>
+      <PK>
+         <Key>idVache</Key>
+      </PK>
+      <FK>
+         <Key>idEleveur</Key>
+         <Reference>Eleveur(idEleveur)</Reference>
+      </FK>
+   </Table>
+   <Table>
+      <Name>Lait</Name>
+      <Column>
+         <Name>typeLait</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>pasteuris&#233;</Name>
+         <Type>LOGICAL</Type>
+      </Column>
+      <Column>
+         <Name>idVache</Name>
+         <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
+      </Column>
+      <PK>
+         <Key>typeLait</Key>
+      </PK>
+      <FK>
+         <Key>idVache</Key>
+         <Reference>Vache(idVache)</Reference>
+      </FK>
+   </Table>
+   <Table>
+      <Name>Allergenes</Name>
+      <Column>
+         <Name>typesAllergenes</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <PK>
+         <Key>typesAllergenes</Key>
+      </PK>
+   </Table>
+   <Table>
       <Name>Club</Name>
       <Column>
          <Name>numClub</Name>
@@ -225,75 +299,9 @@
       </FK>
    </Table>
    <Table>
-      <Name>Repas</Name>
-      <Column>
-         <Name>nomPlat</Name>
-         <Type>VARCHAR(50)</Type>
-      </Column>
-      <Column>
-         <Name>nomLegume</Name>
-         <Type>VARCHAR(50)</Type>
-      </Column>
-      <Column>
-         <Name>nomAliment</Name>
-         <Type>VARCHAR(50)</Type>
-      </Column>
-      <Column>
-         <Name>nomSauce</Name>
-         <Type>VARCHAR(50)</Type>
-      </Column>
-      <Column>
-         <Name>nomGrade</Name>
-         <Type>VARCHAR(50)</Type>
-         <Property>NOT NULL</Property>
-      </Column>
-      <Column>
-         <Name>numMachine</Name>
-         <Type>VARCHAR(50)</Type>
-         <Property>NOT NULL</Property>
-      </Column>
-      <PK>
-         <Key>nomPlat</Key>
-      </PK>
-      <FK>
-         <Key>nomLegume</Key>
-         <Reference>Legume(nomLegume)</Reference>
-      </FK>
-      <FK>
-         <Key>nomAliment</Key>
-         <Reference>Aliment(nomAliment)</Reference>
-      </FK>
-      <FK>
-         <Key>nomSauce</Key>
-         <Reference>Sauce(nomSauce)</Reference>
-      </FK>
-      <FK>
-         <Key>nomGrade</Key>
-         <Reference>Grade_Chevalier_Dame(nomGrade)</Reference>
-      </FK>
-      <FK>
-         <Key>numMachine</Key>
-         <Reference>Machine_certifie(numMachine)</Reference>
-      </FK>
-   </Table>
-   <Table>
-      <Name>club_pas_dans_un_ordre</Name>
-      <Column>
-         <Name>numClub</Name>
-         <Type>VARCHAR(50)</Type>
-      </Column>
-      <PK>
-         <Key>numClub</Key>
-      </PK>
-      <FK>
-         <Key>numClub</Key>
-         <Reference>Club(numClub)</Reference>
-      </FK>
-   </Table>
-   <Table>
       <Name>Tenrac</Name>
       <Column>
-         <Name>RFID</Name>
+         <Name>code</Name>
          <Type>VARCHAR(50)</Type>
       </Column>
       <Column>
@@ -330,17 +338,17 @@
          <Property>NOT NULL</Property>
       </Column>
       <Column>
-         <Name>NumOrdre</Name>
-         <Type>VARCHAR(50)</Type>
-         <Property>NOT NULL</Property>
-      </Column>
-      <Column>
          <Name>numClub</Name>
          <Type>VARCHAR(50)</Type>
          <Property>NOT NULL</Property>
       </Column>
+      <Column>
+         <Name>NumOrdre</Name>
+         <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
+      </Column>
       <PK>
-         <Key>RFID</Key>
+         <Key>code</Key>
       </PK>
       <FK>
          <Key>nomDignit&#233;</Key>
@@ -363,16 +371,100 @@
          <Reference>grade(nomGrade)</Reference>
       </FK>
       <FK>
+         <Key>numClub</Key>
+         <Reference>Club(numClub)</Reference>
+      </FK>
+      <FK>
          <Key>NumOrdre</Key>
          <Reference>Ordre(NumOrdre)</Reference>
       </FK>
+   </Table>
+   <Table>
+      <Name>Raclette</Name>
+      <Column>
+         <Name>typeRaclette</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>typeLait</Name>
+         <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
+      </Column>
+      <PK>
+         <Key>typeRaclette</Key>
+      </PK>
       <FK>
-         <Key>numClub</Key>
-         <Reference>club_pas_dans_un_ordre(numClub)</Reference>
+         <Key>typeLait</Key>
+         <Reference>Lait(typeLait)</Reference>
+      </FK>
+   </Table>
+   <Table>
+      <Name>Repas</Name>
+      <Column>
+         <Name>nomPlat</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>typeRaclette</Name>
+         <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
+      </Column>
+      <Column>
+         <Name>nomLegume</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>nomAliment</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>nomSauce</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>nomGrade</Name>
+         <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
+      </Column>
+      <Column>
+         <Name>numMachine</Name>
+         <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
+      </Column>
+      <PK>
+         <Key>nomPlat</Key>
+      </PK>
+      <FK>
+         <Key>typeRaclette</Key>
+         <Reference>Raclette(typeRaclette)</Reference>
+      </FK>
+      <FK>
+         <Key>nomLegume</Key>
+         <Reference>Legume(nomLegume)</Reference>
+      </FK>
+      <FK>
+         <Key>nomAliment</Key>
+         <Reference>Aliment(nomAliment)</Reference>
+      </FK>
+      <FK>
+         <Key>nomSauce</Key>
+         <Reference>Sauce(nomSauce)</Reference>
+      </FK>
+      <FK>
+         <Key>nomGrade</Key>
+         <Reference>Grade_Chevalier_Dame(nomGrade)</Reference>
+      </FK>
+      <FK>
+         <Key>numMachine</Key>
+         <Reference>Machine_certifie(numMachine)</Reference>
       </FK>
    </Table>
    <Table>
       <Name>enregistre</Name>
+      <Column>
+         <Name>numClub</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
       <Column>
          <Name>NumOrdre</Name>
          <Type>VARCHAR(50)</Type>
@@ -381,13 +473,13 @@
          <Name>idRegistre</Name>
          <Type>INT</Type>
       </Column>
-      <Column>
-         <Name>numClub</Name>
-         <Type>VARCHAR(50)</Type>
-      </Column>
       <PK>
-         <Key>NumOrdre, idRegistre, numClub</Key>
+         <Key>numClub, NumOrdre, idRegistre</Key>
       </PK>
+      <FK>
+         <Key>numClub</Key>
+         <Reference>Club(numClub)</Reference>
+      </FK>
       <FK>
          <Key>NumOrdre</Key>
          <Reference>Ordre(NumOrdre)</Reference>
@@ -395,10 +487,6 @@
       <FK>
          <Key>idRegistre</Key>
          <Reference>Registre(idRegistre)</Reference>
-      </FK>
-      <FK>
-         <Key>numClub</Key>
-         <Reference>club_pas_dans_un_ordre(numClub)</Reference>
       </FK>
    </Table>
    <Table>
@@ -408,7 +496,7 @@
          <Type>VARCHAR(50)</Type>
       </Column>
       <Column>
-         <Name>RFID</Name>
+         <Name>code</Name>
          <Type>VARCHAR(50)</Type>
       </Column>
       <Column>
@@ -424,15 +512,15 @@
          <Type>VARCHAR(50)</Type>
       </Column>
       <PK>
-         <Key>numClub, RFID, nomPlat, adresseRepas</Key>
+         <Key>numClub, code, nomPlat, adresseRepas</Key>
       </PK>
       <FK>
          <Key>numClub</Key>
          <Reference>Club(numClub)</Reference>
       </FK>
       <FK>
-         <Key>RFID</Key>
-         <Reference>Tenrac(RFID)</Reference>
+         <Key>code</Key>
+         <Reference>Tenrac(code)</Reference>
       </FK>
       <FK>
          <Key>nomPlat</Key>
@@ -463,6 +551,28 @@
       <FK>
          <Key>adresseRepas</Key>
          <Reference>Adresse(adresseRepas)</Reference>
+      </FK>
+   </Table>
+   <Table>
+      <Name>peut_contenir</Name>
+      <Column>
+         <Name>nomLegume</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <Column>
+         <Name>typesAllergenes</Name>
+         <Type>VARCHAR(50)</Type>
+      </Column>
+      <PK>
+         <Key>nomLegume, typesAllergenes</Key>
+      </PK>
+      <FK>
+         <Key>nomLegume</Key>
+         <Reference>Legume(nomLegume)</Reference>
+      </FK>
+      <FK>
+         <Key>typesAllergenes</Key>
+         <Reference>Allergenes(typesAllergenes)</Reference>
       </FK>
    </Table>
 </Database>
