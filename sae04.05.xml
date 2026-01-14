@@ -31,7 +31,7 @@
       </PK>
    </Table>
    <Table>
-      <Name>grade</Name>
+      <Name>Grade</Name>
       <Column>
          <Name>idGrade</Name>
          <Type>INT</Type>
@@ -46,7 +46,7 @@
       </PK>
    </Table>
    <Table>
-      <Name>rang</Name>
+      <Name>Rang</Name>
       <Column>
          <Name>idRang</Name>
          <Type>INT</Type>
@@ -61,7 +61,7 @@
       </PK>
    </Table>
    <Table>
-      <Name>titre</Name>
+      <Name>Titre</Name>
       <Column>
          <Name>idTitre</Name>
          <Type>INT</Type>
@@ -76,18 +76,18 @@
       </PK>
    </Table>
    <Table>
-      <Name>dignit&#233;</Name>
+      <Name>Dignite</Name>
       <Column>
-         <Name>idDignit&#233;</Name>
+         <Name>idDignite</Name>
          <Type>INT</Type>
       </Column>
       <Column>
-         <Name>nomDignit&#233;</Name>
+         <Name>nomDignite</Name>
          <Type>VARCHAR(50)</Type>
          <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>idDignit&#233;</Key>
+         <Key>idDignite</Key>
       </PK>
    </Table>
    <Table>
@@ -173,19 +173,19 @@
    <Table>
       <Name>Idoine</Name>
       <Column>
-         <Name>idDignit&#233;</Name>
+         <Name>idDignite</Name>
          <Type>INT</Type>
       </Column>
       <PK>
-         <Key>idDignit&#233;</Key>
+         <Key>idDignite</Key>
       </PK>
       <FK>
-         <Key>idDignit&#233;</Key>
-         <Reference>dignit&#233;(idDignit&#233;)</Reference>
+         <Key>idDignite</Key>
+         <Reference>Dignite(idDignite)</Reference>
       </FK>
    </Table>
    <Table>
-      <Name>Grade_Chevalier_Dame</Name>
+      <Name>GradeChevalierDame</Name>
       <Column>
          <Name>idGrade</Name>
          <Type>INT</Type>
@@ -195,7 +195,7 @@
       </PK>
       <FK>
          <Key>idGrade</Key>
-         <Reference>grade(idGrade)</Reference>
+         <Reference>Grade(idGrade)</Reference>
       </FK>
    </Table>
    <Table>
@@ -214,13 +214,13 @@
       </PK>
    </Table>
    <Table>
-      <Name>Machine_certifie</Name>
+      <Name>MachineCertifie</Name>
       <Column>
          <Name>numMachine</Name>
          <Type>INT</Type>
       </Column>
       <Column>
-         <Name>idDignit&#233;</Name>
+         <Name>idDignite</Name>
          <Type>INT</Type>
       </Column>
       <PK>
@@ -231,8 +231,8 @@
          <Reference>Machine(numMachine)</Reference>
       </FK>
       <FK>
-         <Key>idDignit&#233;</Key>
-         <Reference>Idoine(idDignit&#233;)</Reference>
+         <Key>idDignite</Key>
+         <Reference>Idoine(idDignite)</Reference>
       </FK>
    </Table>
    <Table>
@@ -394,7 +394,7 @@
          <Type>SMALLINT</Type>
       </Column>
       <Column>
-         <Name>idDignit&#233;</Name>
+         <Name>idDignite</Name>
          <Type>INT</Type>
       </Column>
       <Column>
@@ -428,16 +428,16 @@
          <Key>code</Key>
       </PK>
       <FK>
-         <Key>idDignit&#233;</Key>
-         <Reference>dignit&#233;(idDignit&#233;)</Reference>
+         <Key>idDignite</Key>
+         <Reference>Dignite(idDignite)</Reference>
       </FK>
       <FK>
          <Key>idRang</Key>
-         <Reference>rang(idRang)</Reference>
+         <Reference>Rang(idRang)</Reference>
       </FK>
       <FK>
          <Key>idTitre</Key>
-         <Reference>titre(idTitre)</Reference>
+         <Reference>Titre(idTitre)</Reference>
       </FK>
       <FK>
          <Key>SIRET</Key>
@@ -445,7 +445,7 @@
       </FK>
       <FK>
          <Key>idGrade</Key>
-         <Reference>grade(idGrade)</Reference>
+         <Reference>Grade(idGrade)</Reference>
       </FK>
       <FK>
          <Key>numClub</Key>
@@ -539,11 +539,11 @@
       </FK>
       <FK>
          <Key>idGrade</Key>
-         <Reference>Grade_Chevalier_Dame(idGrade)</Reference>
+         <Reference>GradeChevalierDame(idGrade)</Reference>
       </FK>
       <FK>
          <Key>numMachine</Key>
-         <Reference>Machine_certifie(numMachine)</Reference>
+         <Reference>MachineCertifie(numMachine)</Reference>
       </FK>
    </Table>
    <Table>
