@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 <Database>
-   <Name>sae04.05</Name>
+   <Name>sae04</Name>
    <Table>
       <Name>Ordre</Name>
       <Column>
          <Name>NumOrdre</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
+         <Name>nomOrdre</Name>
          <Type>VARCHAR(50)</Type>
       </Column>
       <PK>
@@ -29,55 +33,75 @@
    <Table>
       <Name>grade</Name>
       <Column>
+         <Name>idGrade</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>nomGrade</Name>
          <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>nomGrade</Key>
+         <Key>idGrade</Key>
       </PK>
    </Table>
    <Table>
       <Name>rang</Name>
       <Column>
+         <Name>idRang</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>nomRang</Name>
          <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>nomRang</Key>
+         <Key>idRang</Key>
       </PK>
    </Table>
    <Table>
       <Name>titre</Name>
       <Column>
+         <Name>idTitre</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>nomTitre</Name>
          <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>nomTitre</Key>
+         <Key>idTitre</Key>
       </PK>
    </Table>
    <Table>
       <Name>dignit&#233;</Name>
       <Column>
+         <Name>idDignit&#233;</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>nomDignit&#233;</Name>
          <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>nomDignit&#233;</Key>
+         <Key>idDignit&#233;</Key>
       </PK>
    </Table>
    <Table>
       <Name>Machine</Name>
       <Column>
          <Name>numMachine</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
       </Column>
       <Column>
          <Name>mod&#232;le</Name>
          <Type>VARCHAR(50)</Type>
       </Column>
       <Column>
-         <Name>nom</Name>
+         <Name>nomMachine</Name>
          <Type>VARCHAR(50)</Type>
       </Column>
       <Column>
@@ -105,7 +129,7 @@
       </Column>
       <Column>
          <Name>numMachine</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
          <Property>NOT NULL</Property>
       </Column>
       <PK>
@@ -119,70 +143,85 @@
    <Table>
       <Name>Legume</Name>
       <Column>
+         <Name>idLegume</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>nomLegume</Name>
          <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>nomLegume</Key>
+         <Key>idLegume</Key>
       </PK>
    </Table>
    <Table>
       <Name>Sauce</Name>
       <Column>
+         <Name>idSauce</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>nomSauce</Name>
          <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>nomSauce</Key>
+         <Key>idSauce</Key>
       </PK>
    </Table>
    <Table>
       <Name>Idoine</Name>
       <Column>
-         <Name>nomDignit&#233;</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idDignit&#233;</Name>
+         <Type>INT</Type>
       </Column>
       <PK>
-         <Key>nomDignit&#233;</Key>
+         <Key>idDignit&#233;</Key>
       </PK>
       <FK>
-         <Key>nomDignit&#233;</Key>
-         <Reference>dignit&#233;(nomDignit&#233;)</Reference>
+         <Key>idDignit&#233;</Key>
+         <Reference>dignit&#233;(idDignit&#233;)</Reference>
       </FK>
    </Table>
    <Table>
       <Name>Grade_Chevalier_Dame</Name>
       <Column>
-         <Name>nomGrade</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idGrade</Name>
+         <Type>INT</Type>
       </Column>
       <PK>
-         <Key>nomGrade</Key>
+         <Key>idGrade</Key>
       </PK>
       <FK>
-         <Key>nomGrade</Key>
-         <Reference>grade(nomGrade)</Reference>
+         <Key>idGrade</Key>
+         <Reference>grade(idGrade)</Reference>
       </FK>
    </Table>
    <Table>
       <Name>Adresse</Name>
       <Column>
+         <Name>idAdresse</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>adresseRepas</Name>
          <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>adresseRepas</Key>
+         <Key>idAdresse</Key>
       </PK>
    </Table>
    <Table>
       <Name>Machine_certifie</Name>
       <Column>
          <Name>numMachine</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>nomDignit&#233;</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idDignit&#233;</Name>
+         <Type>INT</Type>
       </Column>
       <PK>
          <Key>numMachine</Key>
@@ -192,25 +231,30 @@
          <Reference>Machine(numMachine)</Reference>
       </FK>
       <FK>
-         <Key>nomDignit&#233;</Key>
-         <Reference>Idoine(nomDignit&#233;)</Reference>
+         <Key>idDignit&#233;</Key>
+         <Reference>Idoine(idDignit&#233;)</Reference>
       </FK>
    </Table>
    <Table>
       <Name>Aliment</Name>
       <Column>
+         <Name>idAliment</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>nomAliment</Name>
          <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>nomAliment</Key>
+         <Key>idAliment</Key>
       </PK>
    </Table>
    <Table>
       <Name>Eleveur</Name>
       <Column>
          <Name>idEleveur</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
       </Column>
       <Column>
          <Name>nomEleveur</Name>
@@ -221,14 +265,14 @@
       </PK>
    </Table>
    <Table>
-      <Name>Vache</Name>
+      <Name>Animal</Name>
       <Column>
-         <Name>idVache</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idAnimal</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
          <Name>age</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>BYTE</Type>
       </Column>
       <Column>
          <Name>pays</Name>
@@ -236,11 +280,11 @@
       </Column>
       <Column>
          <Name>idEleveur</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
          <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>idVache</Key>
+         <Key>idAnimal</Key>
       </PK>
       <FK>
          <Key>idEleveur</Key>
@@ -250,45 +294,74 @@
    <Table>
       <Name>Lait</Name>
       <Column>
+         <Name>idLait</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>typeLait</Name>
          <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <Column>
          <Name>pasteuris&#233;</Name>
          <Type>LOGICAL</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <Column>
-         <Name>idVache</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idAnimal</Name>
+         <Type>INT</Type>
          <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>typeLait</Key>
+         <Key>idLait</Key>
       </PK>
       <FK>
-         <Key>idVache</Key>
-         <Reference>Vache(idVache)</Reference>
+         <Key>idAnimal</Key>
+         <Reference>Animal(idAnimal)</Reference>
       </FK>
    </Table>
    <Table>
       <Name>Allergenes</Name>
       <Column>
+         <Name>idAllergenes</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
          <Name>typesAllergenes</Name>
+         <Type>VARCHAR(50)</Type>
+         <Property>NOT NULL</Property>
+      </Column>
+      <PK>
+         <Key>idAllergenes</Key>
+      </PK>
+   </Table>
+   <Table>
+      <Name>Croyance</Name>
+      <Column>
+         <Name>idCroyance</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
+         <Name>nomCroyance</Name>
          <Type>VARCHAR(50)</Type>
       </Column>
       <PK>
-         <Key>typesAllergenes</Key>
+         <Key>idCroyance</Key>
       </PK>
    </Table>
    <Table>
       <Name>Club</Name>
       <Column>
          <Name>numClub</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
+         <Name>nomClub</Name>
          <Type>VARCHAR(50)</Type>
       </Column>
       <Column>
          <Name>NumOrdre</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
       </Column>
       <PK>
          <Key>numClub</Key>
@@ -302,6 +375,10 @@
       <Name>Tenrac</Name>
       <Column>
          <Name>code</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
+         <Name>nomTenrac</Name>
          <Type>VARCHAR(50)</Type>
       </Column>
       <Column>
@@ -317,58 +394,58 @@
          <Type>SMALLINT</Type>
       </Column>
       <Column>
-         <Name>nomDignit&#233;</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idDignit&#233;</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>nomRang</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idRang</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>nomTitre</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idTitre</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
          <Name>SIRET</Name>
          <Type>INT</Type>
       </Column>
       <Column>
-         <Name>nomGrade</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idGrade</Name>
+         <Type>INT</Type>
          <Property>NOT NULL</Property>
       </Column>
       <Column>
          <Name>numClub</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
          <Property>NOT NULL</Property>
       </Column>
       <Column>
          <Name>NumOrdre</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
          <Property>NOT NULL</Property>
       </Column>
       <PK>
          <Key>code</Key>
       </PK>
       <FK>
-         <Key>nomDignit&#233;</Key>
-         <Reference>dignit&#233;(nomDignit&#233;)</Reference>
+         <Key>idDignit&#233;</Key>
+         <Reference>dignit&#233;(idDignit&#233;)</Reference>
       </FK>
       <FK>
-         <Key>nomRang</Key>
-         <Reference>rang(nomRang)</Reference>
+         <Key>idRang</Key>
+         <Reference>rang(idRang)</Reference>
       </FK>
       <FK>
-         <Key>nomTitre</Key>
-         <Reference>titre(nomTitre)</Reference>
+         <Key>idTitre</Key>
+         <Reference>titre(idTitre)</Reference>
       </FK>
       <FK>
          <Key>SIRET</Key>
          <Reference>Organisme(SIRET)</Reference>
       </FK>
       <FK>
-         <Key>nomGrade</Key>
-         <Reference>grade(nomGrade)</Reference>
+         <Key>idGrade</Key>
+         <Reference>grade(idGrade)</Reference>
       </FK>
       <FK>
          <Key>numClub</Key>
@@ -382,77 +459,87 @@
    <Table>
       <Name>Raclette</Name>
       <Column>
-         <Name>typeRaclette</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idRaclette</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>typeLait</Name>
+         <Name>typeRaclette</Name>
          <Type>VARCHAR(50)</Type>
          <Property>NOT NULL</Property>
       </Column>
+      <Column>
+         <Name>idLait</Name>
+         <Type>INT</Type>
+         <Property>NOT NULL</Property>
+      </Column>
       <PK>
-         <Key>typeRaclette</Key>
+         <Key>idRaclette</Key>
       </PK>
       <FK>
-         <Key>typeLait</Key>
-         <Reference>Lait(typeLait)</Reference>
+         <Key>idLait</Key>
+         <Reference>Lait(idLait)</Reference>
       </FK>
    </Table>
    <Table>
       <Name>Repas</Name>
       <Column>
-         <Name>nomPlat</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idRepas</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>typeRaclette</Name>
+         <Name>nomPlat</Name>
          <Type>VARCHAR(50)</Type>
          <Property>NOT NULL</Property>
       </Column>
       <Column>
-         <Name>nomLegume</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idRaclette</Name>
+         <Type>INT</Type>
+         <Property>NOT NULL</Property>
       </Column>
       <Column>
-         <Name>nomAliment</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idLegume</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>nomSauce</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idAliment</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>nomGrade</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idSauce</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
+         <Name>idGrade</Name>
+         <Type>INT</Type>
          <Property>NOT NULL</Property>
       </Column>
       <Column>
          <Name>numMachine</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
          <Property>NOT NULL</Property>
       </Column>
       <PK>
-         <Key>nomPlat</Key>
+         <Key>idRepas</Key>
       </PK>
       <FK>
-         <Key>typeRaclette</Key>
-         <Reference>Raclette(typeRaclette)</Reference>
+         <Key>idRaclette</Key>
+         <Reference>Raclette(idRaclette)</Reference>
       </FK>
       <FK>
-         <Key>nomLegume</Key>
-         <Reference>Legume(nomLegume)</Reference>
+         <Key>idLegume</Key>
+         <Reference>Legume(idLegume)</Reference>
       </FK>
       <FK>
-         <Key>nomAliment</Key>
-         <Reference>Aliment(nomAliment)</Reference>
+         <Key>idAliment</Key>
+         <Reference>Aliment(idAliment)</Reference>
       </FK>
       <FK>
-         <Key>nomSauce</Key>
-         <Reference>Sauce(nomSauce)</Reference>
+         <Key>idSauce</Key>
+         <Reference>Sauce(idSauce)</Reference>
       </FK>
       <FK>
-         <Key>nomGrade</Key>
-         <Reference>Grade_Chevalier_Dame(nomGrade)</Reference>
+         <Key>idGrade</Key>
+         <Reference>Grade_Chevalier_Dame(idGrade)</Reference>
       </FK>
       <FK>
          <Key>numMachine</Key>
@@ -463,11 +550,11 @@
       <Name>enregistre</Name>
       <Column>
          <Name>numClub</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
       </Column>
       <Column>
          <Name>NumOrdre</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
       </Column>
       <Column>
          <Name>idRegistre</Name>
@@ -493,26 +580,26 @@
       <Name>se_regroupent</Name>
       <Column>
          <Name>numClub</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
       </Column>
       <Column>
          <Name>code</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>nomPlat</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idRepas</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>adresseRepas</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idAdresse</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
          <Name>date_</Name>
          <Type>VARCHAR(50)</Type>
       </Column>
       <PK>
-         <Key>numClub, code, nomPlat, adresseRepas</Key>
+         <Key>numClub, code, idRepas, idAdresse</Key>
       </PK>
       <FK>
          <Key>numClub</Key>
@@ -523,56 +610,116 @@
          <Reference>Tenrac(code)</Reference>
       </FK>
       <FK>
-         <Key>nomPlat</Key>
-         <Reference>Repas(nomPlat)</Reference>
+         <Key>idRepas</Key>
+         <Reference>Repas(idRepas)</Reference>
       </FK>
       <FK>
-         <Key>adresseRepas</Key>
-         <Reference>Adresse(adresseRepas)</Reference>
+         <Key>idAdresse</Key>
+         <Reference>Adresse(idAdresse)</Reference>
       </FK>
    </Table>
    <Table>
       <Name>connait</Name>
       <Column>
          <Name>NumOrdre</Name>
-         <Type>VARCHAR(50)</Type>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>adresseRepas</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idAdresse</Name>
+         <Type>INT</Type>
       </Column>
       <PK>
-         <Key>NumOrdre, adresseRepas</Key>
+         <Key>NumOrdre, idAdresse</Key>
       </PK>
       <FK>
          <Key>NumOrdre</Key>
          <Reference>Ordre(NumOrdre)</Reference>
       </FK>
       <FK>
-         <Key>adresseRepas</Key>
-         <Reference>Adresse(adresseRepas)</Reference>
+         <Key>idAdresse</Key>
+         <Reference>Adresse(idAdresse)</Reference>
       </FK>
    </Table>
    <Table>
       <Name>peut_contenir</Name>
       <Column>
-         <Name>nomLegume</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idLegume</Name>
+         <Type>INT</Type>
       </Column>
       <Column>
-         <Name>typesAllergenes</Name>
-         <Type>VARCHAR(50)</Type>
+         <Name>idSauce</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
+         <Name>idAliment</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
+         <Name>idAllergenes</Name>
+         <Type>INT</Type>
       </Column>
       <PK>
-         <Key>nomLegume, typesAllergenes</Key>
+         <Key>idLegume, idSauce, idAliment, idAllergenes</Key>
       </PK>
       <FK>
-         <Key>nomLegume</Key>
-         <Reference>Legume(nomLegume)</Reference>
+         <Key>idLegume</Key>
+         <Reference>Legume(idLegume)</Reference>
       </FK>
       <FK>
-         <Key>typesAllergenes</Key>
-         <Reference>Allergenes(typesAllergenes)</Reference>
+         <Key>idSauce</Key>
+         <Reference>Sauce(idSauce)</Reference>
+      </FK>
+      <FK>
+         <Key>idAliment</Key>
+         <Reference>Aliment(idAliment)</Reference>
+      </FK>
+      <FK>
+         <Key>idAllergenes</Key>
+         <Reference>Allergenes(idAllergenes)</Reference>
+      </FK>
+   </Table>
+   <Table>
+      <Name>Peut_affecter</Name>
+      <Column>
+         <Name>idLegume</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
+         <Name>idCroyance</Name>
+         <Type>INT</Type>
+      </Column>
+      <PK>
+         <Key>idLegume, idCroyance</Key>
+      </PK>
+      <FK>
+         <Key>idLegume</Key>
+         <Reference>Legume(idLegume)</Reference>
+      </FK>
+      <FK>
+         <Key>idCroyance</Key>
+         <Reference>Croyance(idCroyance)</Reference>
+      </FK>
+   </Table>
+   <Table>
+      <Name>Croit</Name>
+      <Column>
+         <Name>code</Name>
+         <Type>INT</Type>
+      </Column>
+      <Column>
+         <Name>idCroyance</Name>
+         <Type>INT</Type>
+      </Column>
+      <PK>
+         <Key>code, idCroyance</Key>
+      </PK>
+      <FK>
+         <Key>code</Key>
+         <Reference>Tenrac(code)</Reference>
+      </FK>
+      <FK>
+         <Key>idCroyance</Key>
+         <Reference>Croyance(idCroyance)</Reference>
       </FK>
    </Table>
 </Database>
