@@ -679,7 +679,7 @@
       </FK>
    </Table>
    <Table>
-      <Name>Peut_affecter</Name>
+      <Name>peut_affecter</Name>
       <Column>
          <Name>idLegume</Name>
          <Type>INT</Type>
@@ -701,7 +701,7 @@
       </FK>
    </Table>
    <Table>
-      <Name>Croit</Name>
+      <Name>croit</Name>
       <Column>
          <Name>code</Name>
          <Type>INT</Type>
