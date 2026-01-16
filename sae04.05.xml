@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 <Database>
-   <Name>sae04</Name>
+   <Name>sae04.05</Name>
    <Table>
       <Name>Ordre</Name>
       <Column>
@@ -20,7 +20,7 @@
       <Name>Organisme</Name>
       <Column>
          <Name>SIRET</Name>
-         <Type>INT</Type>
+         <Type>BIGINT</Type>
       </Column>
       <Column>
          <Name>raison_sociale</Name>
@@ -407,7 +407,7 @@
       </Column>
       <Column>
          <Name>SIRET</Name>
-         <Type>INT</Type>
+         <Type>BIGINT</Type>
       </Column>
       <Column>
          <Name>idGrade</Name>
